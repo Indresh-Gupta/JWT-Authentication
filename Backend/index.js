@@ -6,6 +6,7 @@ const cors=require("cors");
 const mongoose=require("mongoose");
 const dotenv=require("dotenv");
 const router=require("./Routes/auth.js");
+const products=require("./Routes/product.js");
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors());
@@ -25,7 +26,8 @@ async function main() {
 
 
 app.use("/user", router);
- 
+app.use("/product", products);
+
 app.get("/", (req, res)=>{
     res.send("this is root node");
 })
